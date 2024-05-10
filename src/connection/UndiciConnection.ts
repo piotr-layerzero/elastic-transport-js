@@ -48,7 +48,7 @@ const INVALID_PATH_REGEX = /[^\u0021-\u00ff]/
 const MAX_BUFFER_LENGTH = buffer.constants.MAX_LENGTH
 const MAX_STRING_LENGTH = buffer.constants.MAX_STRING_LENGTH
 
-export default class Connection extends BaseConnection {
+export default class ConnectionImpl extends BaseConnection {
   pool: Pool
   [kEmitter]: EventEmitter
 
@@ -264,3 +264,5 @@ function isUndiciAgentOptions (opts: Record<string, any>): opts is UndiciAgentOp
 function isTlsSocket (opts: buildConnector.Options, socket: Socket | TLSSocket | null): socket is TLSSocket {
   return socket !== null && opts.protocol === 'https:'
 }
+
+export type Connection = InstanceType<typeof ConnectionImpl>
