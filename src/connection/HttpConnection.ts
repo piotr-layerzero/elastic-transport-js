@@ -50,7 +50,7 @@ const MAX_BUFFER_LENGTH = buffer.constants.MAX_LENGTH
 const MAX_STRING_LENGTH = buffer.constants.MAX_STRING_LENGTH
 const noop = (): void => {}
 
-export default class HttpConnection extends BaseConnection {
+export default class HttpConnectionImpl extends BaseConnection {
   agent?: http.Agent | https.Agent | hpagent.HttpProxyAgent | hpagent.HttpsProxyAgent
   makeRequest: typeof http.request | typeof https.request
 
@@ -406,3 +406,5 @@ function isHttpAgentOptions (opts: Record<string, any>): opts is HttpAgentOption
 async function sleep (ms: number): Promise<unknown> {
   return await new Promise((resolve) => setTimeout(resolve, ms))
 }
+
+export type HttpConnection = InstanceType<typeof HttpConnectionImpl>

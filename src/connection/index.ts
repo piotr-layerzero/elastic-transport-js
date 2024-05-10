@@ -17,13 +17,12 @@
  * under the License.
  */
 
-// import HttpConnection from './HttpConnection'
-// import UndiciConnection from './UndiciConnection'
+import HttpConnection from './HttpConnection'
+import UndiciConnection from './UndiciConnection'
 import BaseConnection from './BaseConnection'
 import FetchConnection from './FetchConnection'
 
-// export type Connection = BaseConnection | HttpConnection | UndiciConnection
-export type Connection = BaseConnection | FetchConnection
+export type Connection = BaseConnection | HttpConnection | UndiciConnection | FetchConnection
 export type {
   ConnectionOptions,
   ConnectionRequestParams,
@@ -35,7 +34,7 @@ export type {
 
 export {
   BaseConnection,
-  // HttpConnection,
-  FetchConnection
-  // UndiciConnection
+  HttpConnection,
+  FetchConnection,
+  UndiciConnection
 }
